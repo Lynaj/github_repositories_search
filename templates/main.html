@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Github Navigator</title>
+    </head>
+    <body>
+
+        <h1> {{ search_term }}</h1>
+
+        {% for repository in list_of_repositories %}
+
+	        <h2>{{ repository.index }}. {{ repository.respository_name }}</h2>
+
+	        <h3> Created {{ repository.created_at }}</h3>
+
+	        <a href="{{ repository.owner_url }}">
+	            <img src="{{ repository.avatar_url }}" alt="avatar" height="42" width="42"/>
+	        </a>
+	        {{ repository.owner_login }}
+
+	        <h3>LastCommit</h3>
+	            {{ repository.sha }} 
+	            {{ repository.commit_message }}  
+	            {{ repository.commit_author_name }}
+	        <hr/>
+        
+        {% endfor %}
+
+	</body>
+</html>
